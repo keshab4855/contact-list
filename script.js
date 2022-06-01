@@ -34,11 +34,22 @@ const displayUsers = (args = userArgs) => {
       </div> `;
   });
   document.getElementById("user-list").innerHTML = str;
+  document.getElementById("user-count").innerText = args.length;
 };
 
 const handleOnChange = (e) => {
   console.log(e.value);
   const qryStrings = "results=20&gender=" + e.value;
   fetchUsers(qryStrings);
+};
+
+const handleOnSearch = (e) => {
+  const str = e.value;
+  const selectedUsers = userArgs.filter((user) => {
+    const name = user.name.first + "" + user.name.last;
+    return name.toLocaleLowerCase().includes(str.toLocaleLowerCase());
+  });
+  displayUsers(selectedUsers);
+  document.getElementById("user-count").innerText = selectedUsers.length;
 };
 fetchUsers();

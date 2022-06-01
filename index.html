@@ -25,8 +25,8 @@
             <!-- filter section -->
             <div class="row">
                 <div class="col">
-                    <input type="text" placeholder="Search by name" class="form-control" name="search"
-                        aria-describedby="emailHelp">
+                    <input type="text" placeholder="Search by name" onkeyup="handleOnSearch(this)" class="form-control"
+                        name="search" aria-describedby="emailHelp">
 
 
                 </div>
@@ -43,7 +43,7 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    20 Contacts found
+                    <span id="user-count"></span> Contacts found
                 </div>
 
             </div>
