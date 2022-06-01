@@ -1,8 +1,8 @@
-const apiUrl = "https://randomuser.me/api/?results=20";
+const apiUrl = "https://randomuser.me/api?";
 let userArgs = [];
 
-const fetchUsers = () => {
-  fetch(apiUrl)
+const fetchUsers = async (params = "results=20") => {
+  fetch(apiUrl + params)
     .then((response) => response.json())
     .then((data) => {
       userArgs = data.results;
@@ -20,10 +20,15 @@ const displayUsers = (args = userArgs) => {
                         <img src="${user.picture.large}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${user.name.title} ${user.name.first} ${user.name.last}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="card-text">
+                            <ul class="list-group list-group-flush">
+  <li class="list-group-item"><i class="fa-solid fa-phone"></i> ${user.cell}</li>
+  <li class="list-group-item"><i class="fa-solid fa-envelope"></i> ${user.email}</li>
+  <li class="list-group-item"><i class="fa-solid fa-location-dot"></i> ${user.location.street.number} ${user.location.street.name} ${user.location.city} ${user.location.country}</li>
+ 
+</ul>
+                            </div>
+                            
                         </div>
                     </div>
       </div> `;
@@ -31,4 +36,9 @@ const displayUsers = (args = userArgs) => {
   document.getElementById("user-list").innerHTML = str;
 };
 
+const handleOnChange = (e) => {
+  console.log(e.value);
+  const qryStrings = "results=20&gender=" + e.value;
+  fetchUsers(qryStrings);
+};
 fetchUsers();

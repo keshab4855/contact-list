@@ -1,10 +1,18 @@
 body {
   padding: 0;
   margin: 0;
+
   /* color: rgba(240, 248, 255, 0.648); */
 }
 
 .wrapper {
   background: rgb(42, 84, 223);
   min-height: 100vh;
+}
+
+.fa-solid {
+  background: rgb(42, 84, 223);
+  border-radius: 50%;
+  padding: 0.5rem;
+  color: #fff;
 }

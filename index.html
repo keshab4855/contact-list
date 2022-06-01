@@ -30,8 +30,9 @@
 
 
                 </div>
-                <div class="col"> <select name="gender" class="form-select" aria-label="Default select example">
-                        <option selected> -- Select gender -- </option>
+                <div class="col"> <select name="gender" class="form-select" aria-label="Default select example"
+                        onchange="handleOnChange(this)">
+                        <option value="" selected> -- Select gender -- </option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
 
