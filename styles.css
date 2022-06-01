@@ -1,0 +1,10 @@
+body {
+  padding: 0;
+  margin: 0;
+  /* color: rgba(240, 248, 255, 0.648); */
+}
+
+.wrapper {
+  background: rgb(42, 84, 223);
+  min-height: 100vh;
+}
